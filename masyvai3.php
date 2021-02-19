@@ -73,6 +73,19 @@ echo "Naudodamiesi 1 uždavinio masyvu: <br>
 2.b SĄLYGA: <br>Raskite didžiausio elemento reikšmę. <br>.";
 echo '<br>';
 
+$max = 0;
+foreach ($masyvas as $mazas_masyvas){
+    foreach ($mazas_masyvas as $vidines_reiksmes) {
+        if ($vidines_reiksmes > $max) {
+            $max = $vidines_reiksmes;
+        }    
+    }
+}
+ 
+echo "2.b  ATSAKYMAS: <br>";
+echo "<b> Didžiausia reikšmė masyve yra $max </b> ";
+_d ($max);
+echo '<br><br>';
  
  
 // echo '</pre>';
@@ -89,16 +102,56 @@ echo "Naudodamiesi 1 uždavinio masyvu: <br>
 2.c SĄLYGA: <br> Suskaičiuokite kiekvieno antro lygio masyvų <br> su vienodais indeksais sumas 
 <br> (t.y. suma reikšmių turinčių indeksą 0, 1 ir t.t.) <br>.";
 echo '<br>';
+//ISSET - Determine if a variable is considered set, this means if a variable is declared and is different than null.
 
-  
+foreach ($masyvas as $mazas_masyvas){
+    foreach ($mazas_masyvas as $key2 => $value){
+        if(!isset($suma[$key2])) {
+            $suma[$key2] = 0;
+        }
+            $suma[$key2] +=$value;
+    }
+}
+
+echo "2.c  ATSAKYMAS: <br>";
+echo "<b> Reikšmių suma masyve yra </b> ";
+print_r($suma);
+_d ($suma);
+echo '<br><br>';
+ 
 
 
  
 echo '******************************<br>';
 echo  '<h3 style="color:rgb(0, 200, 255); padding-left:80px;"> ***** ND 2D ****** </h3>';
 echo "Naudodamiesi 1 uždavinio masyvu: <br>
-2.d SĄLYGA: <br> Raskite didžiausio elemento reikšmę.";
+2.d SĄLYGA: <br> Visus masyvus “pailginkite” iki 7 elementų <br>.";
 echo '<br>';
+echo 'masyvo prailginimas <br>';
+
+ // padidina 2 elementais
+ echo '<pre>';
+print_r($masyvas);
+echo '</pre>'; 
+
+foreach($masyvas as $mazas_masyvas){
+    $mazas_masyvas[] = "x";
+    $mazas_masyvas[] = "x";
+}
+ // padidina iki 7 elelemtu
+foreach ($masyvas as &$mazas_masyvas) {
+    while(count($mazas_masyvas) <7);{
+        $mazas_masyvas[] = rand(1,5);
+    }
+}
+
+
+echo "2.d  ATSAKYMAS: <br>";
+echo "<b> Prailgitas masyvas </b> ";
+echo '<pre>';
+print_r($masyvas);
+echo '</pre>';
+echo '<br><br>';
 
   
  
@@ -110,6 +163,15 @@ sumas panaudokite kaip reikšmes sukuriant naują masyvą. <br>
 T.y. pirma naujo masyvo reikšmė turi būti lygi mažesnio masyvo, <br>
 turinčio indeksą 0 dideliame masyve, visų elementų sumai. ";
 echo '<br>';
+
+
+$mazas_masyvas_sum = [];
+foreach($masyvas as $mazas_masyvas) {
+    $mazas_masyvas_sum[] = array_sum($mazas_masyvas);
+}
+echo '<pre>';
+print_r($mazas_masyvas_sum);
+echo '</pre>';
 
 
 
