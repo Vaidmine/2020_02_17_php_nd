@@ -138,9 +138,10 @@ foreach($masyvas as $mazas_masyvas){
     $mazas_masyvas[] = "x";
     $mazas_masyvas[] = "x";
 }
+
  // padidina iki 7 elelemtu
 foreach ($masyvas as &$mazas_masyvas) {
-    while(count($mazas_masyvas) <7);{
+    while(count($mazas_masyvas) < 7);{
         $mazas_masyvas[] = rand(1,5);
     }
 }
