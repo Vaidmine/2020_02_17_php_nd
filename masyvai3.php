@@ -1,4 +1,4 @@
-<h2 style="color:rgb(0, 200, 255); padding-left:80px;">***** DVIMAČIAI MASYVAI ****** </h2>
+<h2 style="color:rgb(0, 200, 255); padding-left:80px;">***** DVIMAČIAI MASYVAI (1-2 užd.) ****** </h2>
 <h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 1 ****** </h3>
 
 
@@ -141,7 +141,7 @@ foreach($masyvas as $mazas_masyvas){
 
  // padidina iki 7 elelemtu
 foreach ($masyvas as &$mazas_masyvas) {
-    while(count($mazas_masyvas) < 7);{
+    while(count($mazas_masyvas) < 7){
         $mazas_masyvas[] = rand(1,5);
     }
 }

@@ -1,4 +1,4 @@
-<h2 style="color:rgb(0, 200, 255); padding-left:80px;">***** DVIMAČIAI MASYVAI ****** </h2>
+<h2 style="color:rgb(0, 200, 255); padding-left:80px;">***** DVIMAČIAI MASYVAI (3-10 užd.) ****** </h2>
 <h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 3 ****** </h3>
 <?php
 
@@ -71,84 +71,202 @@ echo '</pre>';
 //     echo $value.", ";
 // }
 
+?>
 
+<h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 4 ****** </h3>
+<?php
+echo '<br>';
+echo ' Išrūšiuokite trečio uždavinio pirmo lygio masyvą taip, <br> 
+kad elementai kurių masyvai trumpiausi eitų pradžioje.';
+echo '<br><br> Naudojame f-ją SORT.<br>';
+sort($array3);
+echo '<pre>';
+print_r($array3);
+echo '</pre>';
 
 ?>
 
-
+<h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 5 ****** </h3>
 <?php
 echo '<br>';
-echo  '<h3 style="color:rgb(0, 200, 255); padding-left:80px;"> ***** ND 5 ****** </h3>';
-// Sukurkite masyvą iš 30 elementų. Kiekvienas masyvo elementas yra masyvas
-//  [user_id => xxx, place_in_row => xxx] user_id atsitiktinis unikalus 
-//  skaičius nuo 1 iki 1000000, place_in_row atsitiktinis skaičius 
-//  nuo 0 iki 100. 
+echo "Sukurkite masyvą iš 30 elementų. <br>
+Kiekvienas masyvo elementas yra masyvas <br>
+[user_id => xxx, place_in_row => xxx] <br>
+user_id atsitiktinis unikalus skaičius nuo 1 iki 1000000, <br> 
+place_in_row atsitiktinis skaičius nuo 0 iki 100.<br><br>";
+
+echo "<br> f-ja in_array >>> searches an array for a specific value.<br> 
+<br> ";
 
 $userArray = [];
-for ($i=0; $i < 30 ; $i++) { 
+$id = [];
+for ($i=0; $i < 10 ; $i++) { //  10 o ne 30
+    do {
+$user_id = rand(1, 1000);
+    } while (in_array($user_id, $id));
+    $place_in_row = rand(0, 100);
+    $id[] = $user_id;
+    $userArray[$i] ['user_id']= "$user_id";
+    $userArray[$i] ['place_in_row']= " $place_in_row";
+}
+
+echo '<pre>';
+print_r($userArray);
+echo '</pre>';
+// NAGLIO>>>
     //1.susikuri random user_id
     //2.pereini per visus userius ir tikrini ar nesikartoja. 
     //3.jei pasikartojo back to stage one.
     //4. jei unikalus tada dedam i userArray
-    $userArray[] = ["user_id" => 7, "place_in_row" => 5];
-    
-    $userArray[] = ["user_id" => 4, "place_in_row" => 4];
-    // if($userAray["user_id"]==" kazkas kazkaip"){
-    //     temp = $userArray[i]
-    //     $userArray[i] =  $userArray[i+1]
-    //     $userArray[i+1] = temp
-    // }
+//     $userArray[] = ["user_id" => 7, "place_in_row" => 5];
+//     $userArray[] = ["user_id" => 4, "place_in_row" => 4];
+//     if($userAray["user_id"]==" kazkas kazkaip"){
+//         temp = $userArray[i];
+//         $userArray[i] =  $userArray[i+1];
+//         $userArray[i+1] = temp;
+//     }
+// }
+?>
+
+<h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 6 ****** </h3>
+<?php
+echo '<br>';
+echo 'Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. <br><br>';
+
+echo '<b>N.B. !!!! Vaizdas terminale gali neatitikti "realybės", todėl GERIAU spausdinti (_dc) konsolės vaizdą <br>
+treminale vaizdas gali būti "bet koks" t.y. perrūšiuotas neaišku kokia tvarka...</b>';
+
+usort($userArray, function ($a, $b) {
+    return $a['user_id'] <=> $b['user_id'];
+});
+
+_dc($userArray);  
+// echo '<pre>';
+// print_r($userArray);
+// echo '</pre>';
+
+// ****************
+
+echo '<br> Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka.<br>';
+usort($userArray, function($a, $b){
+    return $b['place_in_row'] <=> $a['place_in_row'];
+});
+
+_dc($userArray);  
+// echo '<pre>';
+// print_r($userArray);
+// echo '</pre>';
+ 
+
+?>
+
+<h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 7 ****** </h3>
+<?php
+echo '<br>';
+echo ' Prie 6 uždavinio masyvo antro lygio masyvų pridėkite dar du <br>
+ elementus: name ir surname. Elementus užpildykite stringais iš  <br>
+ atsitiktinai sugeneruotų lotyniškų raidžių, kurių ilgiai nuo 5 iki 15.<br><br>';
+
+ echo ' strlen — Get string length <br>
+ chr — Generates characters from different ASCII values <br>
+ ASCII Values 65-90 =>>  A - Z';
+
+
+ $userArray[$i] ['user_id']= "$user_id"; // ateina iš 5 uždavinio
+ $userArray[$i] ['place_in_row']= " $place_in_row"; // ateina iš 5 uždavinio
+
+// naujas ciklas varduo ir pavardei
+    for ($i = 0; $i < 10; $i++) {
+        $name = '';
+        $strLenName = rand(5, 15);
+        while (strlen($name) < $strLenName) {
+            $name .= chr(rand(65, 90));
+        }
+        $surname = '';
+        $strLenSurname = rand(5, 15);
+        while (strlen($surname) < $strLenSurname) {
+            $surname .= chr(rand(65, 90));
+        }
+
+        $userArray[$i] ['name']= "$name";
+        $userArray[$i] ['surname']= " $surname";
+     
+    }
+  
+
+    echo '<pre>';
+    print_r($userArray);
+    echo '</pre>';
+    ?>
+
+
+?>
+
+<h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 8 ****** </h3>
+
+<?php
+echo '<br>';
+echo '<ukurkite masyvą iš 10 elementų. Masyvo reikšmes užpildykite <br>
+pagal taisyklę: generuokite skaičių nuo 0 iki 5. <br>
+Ir sukurkite tokio ilgio masyvą. Jeigu reikšmė yra 0 masyvo nekurkite. <br>
+ Antro lygio masyvo reikšmes užpildykite atsitiktiniais <br>
+skaičiais nuo 0 iki 10. Ten kur masyvo nekūrėte reikšmę nuo 0 iki 10 <br>
+įrašykite tiesiogiai.<br> <br>';
+
+$array = [];
+for ($i = 0; $i < 10; $i++) {
+    $random = rand(0, 5);
+    echo $random. ' _ ';
+
+    $innerArray = [];
+    if ($random === 0) {
+        $array[$i] =  rand(0, 10);
+    } else {
+        for ($j = 0; $j < $random; $j++) {
+            $innerArray[$j] = rand(0, 10);
+        }
+        $array[$i] =  $innerArray;
+    }
 }
-print_r($userArray);
-?>
-
-<?php
-echo '<br>';
-echo '<h2>6 užduotis </h2>';
-// Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. 
-// Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka.
-
-?>
-
-<?php
-echo '<br>';
-echo '<h2>7 užduotis </h2>';
-// Prie 6 uždavinio masyvo antro lygio masyvų pridėkite dar du
-//  elementus: name ir surname. Elementus užpildykite stringais iš 
-//  atsitiktinai sugeneruotų lotyniškų raidžių, kurių ilgiai nuo 5 iki 15.
-
-?>
-
-<?php
-echo '<br>';
-echo '<h2>8 užduotis </h2>';
-// Sukurkite masyvą iš 10 elementų. Masyvo reikšmes užpildykite 
-// pagal taisyklę: generuokite skaičių nuo 0 iki 5. 
-// Ir sukurkite tokio ilgio masyvą. Jeigu reikšmė yra 0 masyvo nekurkite.
-//  Antro lygio masyvo reikšmes užpildykite atsitiktiniais
-// skaičiais nuo 0 iki 10. Ten kur masyvo nekūrėte reikšmę nuo 0 iki 10 
-// įrašykite tiesiogiai.
+echo '<pre>';
+print_r($array);
+echo '</pre>';
 
 
 ?>
 
+
+<h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 9 ****** </h3>
 <?php
 echo '<br>';
-echo '<h2>9 užduotis </h2>';
-// Paskaičiuokite 8 uždavinio masyvo visų reikšmių sumą ir išrūšiuokite
-//  masyvą taip, kad pirmiausiai eitų mažiausios masyvo reikšmės 
-//  arba jeigu reikšmė yra masyvas, to masyvo reikšmių sumos.
+echo 'Paskaičiuokite 8 uždavinio masyvo visų reikšmių sumą ir išrūšiuokite <br>
+ masyvą taip, kad pirmiausiai eitų mažiausios masyvo reikšmės <br>
+ arba jeigu reikšmė yra masyvas, to masyvo reikšmių sumos.<br><br>';
+ echo 'is_array — Finds whether a variable is an array'; 
+ $sum = 0;
+ foreach ($array as $value) {
+     if (is_array($value)) {
+         $sum += array_sum($value);
+     } else {
+         $sum += $value;
+     }
+ }
+ echo "<br> <b> SUMA yra: $sum </b>  <br>";
+
+
 
 ?>
+
+<h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 10 ****** </h3>
 <?php
 echo '<br>';
-echo '<h2>10 užduotis </h2>';
-// Sukurkite masyvą iš 10 elementų. Jo reikšmės masyvai iš 10 elementų. 
-// Antro lygio masyvų reikšmės masyvai su dviem elementais value ir color. 
-// Reikšmė value vienas iš atsitiktinai parinktų
-//  simbolių: #%+*@裡, o reikšmė color atsitiktinai sugeneruota
-//   spalva formatu: #XXXXXX. Pasinaudoję masyvų 
-//   atspausdinkite “kvadratą” kurį sudarytų masyvo reikšmės nuspalvintos 
-//   spalva color.
+echo 'Sukurkite masyvą iš 10 elementų. Jo reikšmės masyvai iš 10 elementų. <br> 
+Antro lygio masyvų reikšmės masyvai su dviem elementais value ir color. <br>
+Reikšmė value vienas iš atsitiktinai parinktų <br>
+simbolių: #%+*@裡, o reikšmė color atsitiktinai sugeneruota <br>
+spalva formatu: #XXXXXX. Pasinaudoję masyvų <br>
+atspausdinkite “kvadratą” kurį sudarytų masyvo reikšmės  <br>
+nuspalvintos spalva color. <br>';
 
+ 
 ?>
