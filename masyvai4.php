@@ -262,11 +262,28 @@ echo 'Paskaičiuokite 8 uždavinio masyvo visų reikšmių sumą ir išrūšiuok
 echo '<br>';
 echo 'Sukurkite masyvą iš 10 elementų. Jo reikšmės masyvai iš 10 elementų. <br> 
 Antro lygio masyvų reikšmės masyvai su dviem elementais value ir color. <br>
-Reikšmė value vienas iš atsitiktinai parinktų <br>
-simbolių: #%+*@裡, o reikšmė color atsitiktinai sugeneruota <br>
-spalva formatu: #XXXXXX. Pasinaudoję masyvų <br>
-atspausdinkite “kvadratą” kurį sudarytų masyvo reikšmės  <br>
+Reikšmė value vienas iš atsitiktinai parinktų simbolių: #%+*@裡, <br>
+o reikšmė color atsitiktinai sugeneruota spalva formatu: #XXXXXX. <br>
+Pasinaudoję masyvų atspausdinkite “kvadratą” kurį sudarytų masyvo reikšmės  <br>
 nuspalvintos spalva color. <br>';
+echo '<br><br>';
 
- 
-?>
+
+$letters =  '#%+*@裡';
+
+for ($i = 1; $i <= 10; $i++) {
+    for ($a = 1; $a <= 10 ; $a++) { 
+        $randomChar = $letters[rand(0, strlen($letters)-1)];  // f-ja is interneto
+        $randomColor = "#".substr(md5(rand()), 0, 6);        // f-ja is interneto
+        echo '<div style="display: inline-block; width: 30px; Color:'.$randomColor.'">'.$randomChar.'</div>';
+    }
+    echo  '<br>';
+}
+
+ // kaip padaryti su FOREACH???
+
+
+
+// ?>
+
+  
