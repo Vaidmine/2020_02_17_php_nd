@@ -3,8 +3,6 @@
 
 <?php
 echo '<br><br>**********<br><br>';
-echo 'ARVYDO pvz:';
-echo '<br><br>**********<br><br>';
 echo "1. Sugeneruokite masyvą iš 10 elementų, <br>
 kurio elementai būtų masyvai iš 5 elementų su reikšmėmis nuo 5 iki 25";
 echo '<br>';
@@ -13,22 +11,21 @@ $dviMatisMasyvas = [];
 // naujas tuscias masyvas
 foreach (range(1, 10) as $indexD => $valueD) {
     foreach (range(1, 5) as $indexM => $valueM) {
-        $masyvas[$indexD][$indexM] = rand(5, 25);
+        $dviMatisMasyvas[$indexD][$indexM] = rand(5, 25);
     }
 }
 echo '<pre>';
 echo '<br>';
 print_r($dviMatisMasyvas);
-echo '</pre>';
 _dc($dviMatisMasyvas);
+echo '</pre>';
 
 echo '**********<br><br>';
-
-echo '**********';
+ 
 $dviMatisMasyvas = []; // naujas tuscias masyvas
 foreach (range(1, 10) as $indexD => $valueD) {
     foreach (range(1, 5) as $indexM => $valueM) {
-        $masyvas[$indexD][] = rand(5, 25);
+        $dviMatisMasyvas[$indexD][] = rand(5, 25);
     }
 }
 // [] ---> tuscias masyvas automatiskai generuojamas
@@ -39,17 +36,17 @@ foreach (range(1, 10) as $indexD => $valueD) {
 echo '**********';
 
 $dviMatisMasyvas = [];
-// pirma sukasi MAZASIS masyvas, tadad DIDYSIS masyvas
+// pirma sukasi MAZASIS masyvas, tada DIDYSIS masyvas
 foreach (range(1, 5) as $indexM => $valueM) {
     foreach (range(1, 10) as $indexD => $valueD) {
-        $masyvas[$indexD][$indexM] = rand(5, 25);
+        $dviMatisMasyvas[$indexD][$indexM] = rand(5, 25);
     }
 }
 echo '<pre>';
 echo '<br>';
 print_r($dviMatisMasyvas);
 echo '</pre>';
-_dc($dviMatisMasyvas);
+ 
 
 echo '**********<br><br>';
 
@@ -70,7 +67,7 @@ foreach ($dviMatisMasyvas as $indexD => $valueD) {
         if ($valueM > $didziausiasElementas) {
             $didziausiasElementas = $valueM;
         }
-        $mas[$valueM] = ($mas[$indexM] ?? 0) + $valM;
+        $mas[$valueM] = ($mas[$indexM] ?? 0) + $valueM;
     }
 
     $dviMatisMasyvas[$indexD][] = rand(5,25);
@@ -79,13 +76,18 @@ foreach ($dviMatisMasyvas as $indexD => $valueD) {
 // ?? reiskia, kad jei kintamasis neegzituoja imama default reiksme
 
 echo "ATSAKYMAS: <br>";
+echo "Didesnių nei 10 yra: <br>";
 echo ($didesniunei10);
+_dc($didesniunei10);
+echo " <br> Didžiausias elementas yra: <br>";
 echo ($didziausiasElementas);
+_dc($didziausiasElementas);
 echo '<br><br>';
 
-_dc($didesniunei10);
-_dc($didziausiasElementas);
+
+
 _dc($mas);
+echo "Suma yra: <br>";
 _dc($sum);
 
 ?>

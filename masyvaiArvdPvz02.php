@@ -3,8 +3,7 @@
 
 <?php
 echo '<br><br>**********<br><br>';
-echo 'ARVYDO pvz:';
-echo '<br><br>**********<br><br>';
+echo '<br><br>';
 echo "3. Sukurkite masyvą iš 10 elementų. <br>
 Kiekvienas masyvo elementas turi būti masyvas su atsitiktiniu kiekiu nuo 2 iki 20 elementų.<br>
 Elementų reikšmės atsitiktinai parinktos raidės iš intervalo A-Z. <br>
