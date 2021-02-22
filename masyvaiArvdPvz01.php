@@ -49,6 +49,15 @@ echo '</pre>';
  
 
 echo '**********<br><br>';
+echo "2. Naudodamiesi 1 uždavinio masyvu: <br>
+a)    Suskaičiuokite kiek masyve yra elementų didesnių už 10; <br>
+b)    Raskite didžiausio elemento reikšmę; <br>
+c)    Suskaičiuokite kiekvieno antro lygio masyvų <br> su vienodais indeksais sumas (t.y. suma reikšmių turinčių indeksą 0, 1 ir t.t.) <br>
+d)    Visus masyvus “pailginkite” iki 7 elementų <br>
+e)    Suskaičiuokite kiekvieno iš antro lygio masyvų elementų sumą atskirai ir <br> sumas panaudokite kaip reikšmes sukuriant naują masyvą. <br>
+T.y. pirma naujo masyvo reikšmė turi būti lygi mažesnio masyvo, <br>
+turinčio indeksą 0 dideliame masyve, visų elementų sumai";
+echo '<br>';
 
 $didesniunei10 = 0;
 $didziausiasElementas = PHP_INT_MIN;
