@@ -14,6 +14,7 @@ foreach (range(1, 10) as $index1 => $_) {
     }
 }
 
+
 echo '<pre>';
 echo "Masyvas užrašytas FOREACH būdu <br> (mažiau kodo nei su ciklu FOR): ";
 echo '<br>';
@@ -50,8 +51,8 @@ echo  '<h3 style="color:rgb(0, 200, 255); padding-left:80px;"> ***** ND 2A *****
 echo "Naudodamiesi 1 uždavinio masyvu: <br>
 2.a SĄLYGA: <br> Suskaičiuokite kiek masyve yra elementų didesnių už 10.";
 echo '<br>';
-$count = 0;
 
+$count = 0;
 foreach ($masyvas as $mazas_masyvas) {
     foreach ($mazas_masyvas as $reiksmes) {
         if (10 < $reiksmes) {
@@ -60,6 +61,7 @@ foreach ($masyvas as $mazas_masyvas) {
     }
 }
 
+////////////
  
 echo "2.a  ATSAKYMAS: <br>";
 echo "<b>Reikšmių didesnių už 10 šiame masyve yra $count </b> ";

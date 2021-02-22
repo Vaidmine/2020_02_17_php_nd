@@ -18,7 +18,7 @@ foreach (range(1, 5) as $index1 => $_) {
 
 echo '<br><br>';
 echo '<pre>';
-print_r($array3); 
+print_r($array3);
 echo "vieno pasirinkto (nulinio) masyvo elemento spausdinimas <br>";
 print_r($array3[0]); // spausdinam nulint'aji elementa
 echo '</pre>';
@@ -32,17 +32,17 @@ foreach ($array3 as $arr) {
     echo "<br>";
 }
 echo "<br> raidžių spausdinimas, bet su ciklu FOR <br>";
-for ($i=0; $i < count($array3) ; $i++) { 
-    for ($k=0; $k < count($array3[$i]) ; $k++) { 
-        echo $array3[$i][$k]. ", ";
+for ($i = 0; $i < count($array3); $i++) {
+    for ($k = 0; $k < count($array3[$i]); $k++) {
+        echo $array3[$i][$k] . ", ";
     }
     echo "<br>";
 }
 echo "<br> raidžių spausdinimas - tarpinis variantas tarp FOR ir FOREACH <br>";
 
-for ($i=0; $i < count($array3) ; $i++) { 
+for ($i = 0; $i < count($array3); $i++) {
     $vidinisMasyvas = $array3[$i];
-    for ($k=0; $k < count($array3[$i]) ; $k++) { 
+    for ($k = 0; $k < count($array3[$i]); $k++) {
         $letter = $vidinisMasyvas[$k];
         echo $letter . ", ";
     }
@@ -76,13 +76,15 @@ echo '</pre>';
 <h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 4 ****** </h3>
 <?php
 echo '<br>';
-echo ' Išrūšiuokite trečio uždavinio pirmo lygio masyvą taip, <br> 
+echo ' Išrūšiuokite trečio uždavinio pirmo lygio masyvą taip, <br>
 kad elementai kurių masyvai trumpiausi eitų pradžioje.';
 echo '<br><br> Naudojame f-ją SORT.<br>';
 sort($array3);
 echo '<pre>';
 print_r($array3);
 echo '</pre>';
+
+ 
 
 ?>
 
@@ -92,32 +94,39 @@ echo '<br>';
 echo "Sukurkite masyvą iš 30 elementų. <br>
 Kiekvienas masyvo elementas yra masyvas <br>
 [user_id => xxx, place_in_row => xxx] <br>
-user_id atsitiktinis unikalus skaičius nuo 1 iki 1000000, <br> 
+user_id atsitiktinis unikalus skaičius nuo 1 iki 1000000, <br>
 place_in_row atsitiktinis skaičius nuo 0 iki 100.<br><br>";
 
-echo "<br> f-ja in_array >>> searches an array for a specific value.<br> 
+echo "<br> f-ja in_array >>> searches an array for a specific value.<br>
 <br> ";
 
 $userArray = [];
 $id = [];
-for ($i=0; $i < 10 ; $i++) { //  10 o ne 30
+for ($i = 0; $i < 10; $i++) { //  10 o ne 30
     do {
-$user_id = rand(1, 1000);
+        $user_id = rand(1, 1000);
     } while (in_array($user_id, $id));
     $place_in_row = rand(0, 100);
     $id[] = $user_id;
-    $userArray[$i] ['user_id']= "$user_id";
-    $userArray[$i] ['place_in_row']= " $place_in_row";
+    $userArray[$i]['user_id'] = "$user_id";
+    $userArray[$i]['place_in_row'] = " $place_in_row";
 }
+
+//////////////
+
+
+
+////////
+
 
 echo '<pre>';
 print_r($userArray);
 echo '</pre>';
 // NAGLIO>>>
-    //1.susikuri random user_id
-    //2.pereini per visus userius ir tikrini ar nesikartoja. 
-    //3.jei pasikartojo back to stage one.
-    //4. jei unikalus tada dedam i userArray
+//1.susikuri random user_id
+//2.pereini per visus userius ir tikrini ar nesikartoja.
+//3.jei pasikartojo back to stage one.
+//4. jei unikalus tada dedam i userArray
 //     $userArray[] = ["user_id" => 7, "place_in_row" => 5];
 //     $userArray[] = ["user_id" => 4, "place_in_row" => 4];
 //     if($userAray["user_id"]==" kazkas kazkaip"){
@@ -140,7 +149,7 @@ usort($userArray, function ($a, $b) {
     return $a['user_id'] <=> $b['user_id'];
 });
 
-_dc($userArray);  
+_dc($userArray);
 // echo '<pre>';
 // print_r($userArray);
 // echo '</pre>';
@@ -148,15 +157,14 @@ _dc($userArray);
 // ****************
 
 echo '<br> Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka.<br>';
-usort($userArray, function($a, $b){
+usort($userArray, function ($a, $b) {
     return $b['place_in_row'] <=> $a['place_in_row'];
 });
 
-_dc($userArray);  
+_dc($userArray);
 // echo '<pre>';
 // print_r($userArray);
 // echo '</pre>';
- 
 
 ?>
 
@@ -167,37 +175,35 @@ echo ' Prie 6 uždavinio masyvo antro lygio masyvų pridėkite dar du <br>
  elementus: name ir surname. Elementus užpildykite stringais iš  <br>
  atsitiktinai sugeneruotų lotyniškų raidžių, kurių ilgiai nuo 5 iki 15.<br><br>';
 
- echo ' strlen — Get string length <br>
+echo ' strlen — Get string length <br>
  chr — Generates characters from different ASCII values <br>
  ASCII Values 65-90 =>>  A - Z';
 
-
- $userArray[$i] ['user_id']= "$user_id"; // ateina iš 5 uždavinio
- $userArray[$i] ['place_in_row']= " $place_in_row"; // ateina iš 5 uždavinio
+$userArray[$i]['user_id'] = "$user_id"; // ateina iš 5 uždavinio
+$userArray[$i]['place_in_row'] = " $place_in_row"; // ateina iš 5 uždavinio
 
 // naujas ciklas varduo ir pavardei
-    for ($i = 0; $i < 10; $i++) {
-        $name = '';
-        $strLenName = rand(5, 15);
-        while (strlen($name) < $strLenName) {
-            $name .= chr(rand(65, 90));
-        }
-        $surname = '';
-        $strLenSurname = rand(5, 15);
-        while (strlen($surname) < $strLenSurname) {
-            $surname .= chr(rand(65, 90));
-        }
-
-        $userArray[$i] ['name']= "$name";
-        $userArray[$i] ['surname']= " $surname";
-     
+for ($i = 0; $i < 10; $i++) {
+    $name = '';
+    $strLenName = rand(5, 15);
+    while (strlen($name) < $strLenName) {
+        $name .= chr(rand(65, 90));
     }
-  
+    $surname = '';
+    $strLenSurname = rand(5, 15);
+    while (strlen($surname) < $strLenSurname) {
+        $surname .= chr(rand(65, 90));
+    }
 
-    echo '<pre>';
-    print_r($userArray);
-    echo '</pre>';
-    ?>
+    $userArray[$i]['name'] = "$name";
+    $userArray[$i]['surname'] = " $surname";
+
+}
+
+echo '<pre>';
+print_r($userArray);
+echo '</pre>';
+?>
 
 
 ?>
@@ -206,7 +212,7 @@ echo ' Prie 6 uždavinio masyvo antro lygio masyvų pridėkite dar du <br>
 
 <?php
 echo '<br>';
-echo '<ukurkite masyvą iš 10 elementų. Masyvo reikšmes užpildykite <br>
+echo '<sukurkite masyvą iš 10 elementų. Masyvo reikšmes užpildykite <br>
 pagal taisyklę: generuokite skaičių nuo 0 iki 5. <br>
 Ir sukurkite tokio ilgio masyvą. Jeigu reikšmė yra 0 masyvo nekurkite. <br>
  Antro lygio masyvo reikšmes užpildykite atsitiktiniais <br>
@@ -216,22 +222,21 @@ skaičiais nuo 0 iki 10. Ten kur masyvo nekūrėte reikšmę nuo 0 iki 10 <br>
 $array = [];
 for ($i = 0; $i < 10; $i++) {
     $random = rand(0, 5);
-    echo $random. ' _ ';
+    echo $random . ' _ ';
 
     $innerArray = [];
     if ($random === 0) {
-        $array[$i] =  rand(0, 10);
+        $array[$i] = rand(0, 10);
     } else {
         for ($j = 0; $j < $random; $j++) {
             $innerArray[$j] = rand(0, 10);
         }
-        $array[$i] =  $innerArray;
+        $array[$i] = $innerArray;
     }
 }
 echo '<pre>';
 print_r($array);
 echo '</pre>';
-
 
 ?>
 
@@ -242,48 +247,64 @@ echo '<br>';
 echo 'Paskaičiuokite 8 uždavinio masyvo visų reikšmių sumą ir išrūšiuokite <br>
  masyvą taip, kad pirmiausiai eitų mažiausios masyvo reikšmės <br>
  arba jeigu reikšmė yra masyvas, to masyvo reikšmių sumos.<br><br>';
- echo 'is_array — Finds whether a variable is an array'; 
- $sum = 0;
- foreach ($array as $value) {
-     if (is_array($value)) {
-         $sum += array_sum($value);
-     } else {
-         $sum += $value;
-     }
- }
- echo "<br> <b> SUMA yra: $sum </b>  <br>";
-
-
+echo 'is_array — Finds whether a variable is an array';
+$sum = 0;
+foreach ($array as $value) {
+    if (is_array($value)) {
+        $sum += array_sum($value);
+    } else {
+        $sum += $value;
+    }
+}
+echo "<br> <b> SUMA yra: $sum </b>  <br>";
 
 ?>
 
 <h3 style="color:rgb(0, 200, 255); padding-left:80px;">***** ND 10 ****** </h3>
 <?php
 echo '<br>';
-echo 'Sukurkite masyvą iš 10 elementų. Jo reikšmės masyvai iš 10 elementų. <br> 
+echo 'Sukurkite masyvą iš 10 elementų. Jo reikšmės masyvai iš 10 elementų. <br>
 Antro lygio masyvų reikšmės masyvai su dviem elementais value ir color. <br>
 Reikšmė value vienas iš atsitiktinai parinktų simbolių: #%+*@裡, <br>
 o reikšmė color atsitiktinai sugeneruota spalva formatu: #XXXXXX. <br>
 Pasinaudoję masyvų atspausdinkite “kvadratą” kurį sudarytų masyvo reikšmės  <br>
 nuspalvintos spalva color. <br>';
 echo '<br><br>';
+echo '<br><br>  užrašymo būdas su FOR ciklu: <br><br> ';
 
-
-$letters =  '#%+*@裡';
+$letters = '#%+*@裡';
 
 for ($i = 1; $i <= 10; $i++) {
-    for ($a = 1; $a <= 10 ; $a++) { 
-        $randomChar = $letters[rand(0, strlen($letters)-1)];  // f-ja is interneto
-        $randomColor = "#".substr(md5(rand()), 0, 6);        // f-ja is interneto
-        echo '<div style="display: inline-block; width: 30px; Color:'.$randomColor.'">'.$randomChar.'</div>';
+    for ($a = 1; $a <= 10; $a++) {
+        $randomChar = $letters[rand(0, strlen($letters) - 1)]; // f-ja is interneto
+        $randomColor = "#" . substr(md5(rand()), 0, 6); // f-ja is interneto
+        echo '<div style="display: inline-block; width: 30px; Color:' . $randomColor . '">' . $randomChar . '</div>';
     }
-    echo  '<br>';
+    echo '<br>';
 }
 
- // kaip padaryti su FOREACH???
+echo '<br><br> kitas užrašymo būdas su FOREACH ciklu: <br><br> ';
+
+$randomColor = "#" . substr(md5(rand()), 0, 6);
+
+$triMatisMasyvas = [];
+$value = ['#', '%', '+', '*', '@', '裡'];
+foreach (range(1, 10) as $index1 => $value1) {
+    foreach (range(1, 10) as $index2 => $value2) { 
+        $triMatisMasyvas[$index1][$index2]['value'] = $value[rand(0,5)];
+        $triMatisMasyvas[$index1][$index2]['color'] =
+        $randomColor = "#" . substr(md5(rand()), 0, 6);
+  }
+}
+
+foreach($triMatisMasyvas as $row) {
+    echo '<div>';
+    foreach($row as $element){
+echo '<span style="display:inline-block; width: 30px;color:'.$element['color'].';">'.$element['value'].'</span>';
+
+    }
+    echo '</div>';
+}
 
 
-
-// ?>
-
-  
+?>
